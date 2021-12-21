@@ -1,0 +1,19 @@
+name: StartServer
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Start
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Install dependencies
+        run: npm install
+      - name: Run the server
+        run: npx lt --port 3000 & node src/index.js
