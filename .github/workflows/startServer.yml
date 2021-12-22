@@ -24,4 +24,5 @@ jobs:
       - name: Start
         run: |
           wget https://papermc.io/api/v2/projects/paper/versions/1.17.1/builds/402/downloads/paper-1.17.1-402.jar &&
+          echo "eula=true" > eula.txt &&
           java -jar paper-1.17.1-402.jar nogui & node src
